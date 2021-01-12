@@ -1800,7 +1800,12 @@ def create_line(net, from_bus, to_bus, length_km, std_type, name=None, index=Non
 
     if "type" in lineparam:
         v["type"] = lineparam["type"]
-
+    
+    if "r0_ohm_per_km" in lineparam:
+        v["r0_ohm_per_km"] = lineparam["r0_ohm_per_km"]
+        v["x0_ohm_per_km"] = lineparam["x0_ohm_per_km"]
+        v["c0_nf_per_km"] = lineparam["c0_nf_per_km"]
+        
     # if net.line column already has alpha, add it from std_type
     if "alpha" in net.line.columns and "alpha" in lineparam:
         v["alpha"] = lineparam["alpha"]
